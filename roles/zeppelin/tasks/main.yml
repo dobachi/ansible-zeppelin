@@ -11,13 +11,13 @@
 
   - name: downlaod zeppelin
     get_url:
-      url: http://ftp.tsukuba.wide.ad.jp/software/apache/zeppelin/zeppelin-{{zeppelin_version}}/zeppelin-{{zeppelin_version}}-bin-all.tgz
+      url: http://ftp.jaist.ac.jp/pub/apache/zeppelin/zeppelin-0.8.2/zeppelin-{{zeppelin_version}}-bin-netinst.tgz
       dest: /opt/zeppelin/
       force: no
 
   - name: unarchive zeppelin package
     unarchive:
-      src: /opt/zeppelin/zeppelin-{{zeppelin_version}}-bin-all.tgz
+      src: /opt/zeppelin/zeppelin-{{zeppelin_version}}-bin-netinst.tgz
       dest: /opt/zeppelin
 
   - name: configure alternatives

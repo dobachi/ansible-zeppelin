@@ -19,12 +19,13 @@
     unarchive:
       src: /opt/zeppelin/zeppelin-{{zeppelin_version}}-bin-netinst.tgz
       dest: /opt/zeppelin
+      creates: /opt/zeppelin/zeppelin-{{zeppelin_version}}-bin-netinst/README.md
 
   - name: configure alternatives
     alternatives:
       name: zeppelin
       link: /opt/zeppelin/default
-      path: /opt/zeppelin/zeppelin-{{zeppelin_version}}
+      path: /opt/zeppelin/zeppelin-{{zeppelin_version}}-bin-netinst
 
   tags:
     - zeppelin

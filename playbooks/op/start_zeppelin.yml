@@ -1,0 +1,10 @@
+---
+- hosts: "{{ server | default('production') }}"
+  vars_files:
+    - ../../group_vars/production/zeppelin
+  tasks:
+    - name: start zeppelin server
+      shell:
+        cmd: "{{zeppelin_home_dir}}/bin/zeppelin-daemon.sh start"
+
+# vim: et sw=2 ts=2:

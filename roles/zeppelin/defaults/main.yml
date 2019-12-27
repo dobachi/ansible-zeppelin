@@ -1,2 +1,4 @@
 ---
 # defaults file for roles/zeppelin
+
+zeppelin_version: 0.8.2

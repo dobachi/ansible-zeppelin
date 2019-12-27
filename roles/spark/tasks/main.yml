@@ -1,0 +1,28 @@
+---
+# tasks file for roles/spark
+- block:
+
+  - name: mkdir spark
+    file:
+      path: /opt/spark
+      state: directory
+
+  - name: download spark
+    get_url:
+      url: http://ftp.riken.jp/net/apache/spark/spark-{{spark_version}}/spark-{{spark_version}}-bin-hadoop2.7.tgz
+      dest: /opt/spark
+
+  - name: unarchive spark package
+    unarchive:
+      src: /opt/spark/spark-{{spark_version}}-bin-hadoop2.7.tgz
+      dest: /opt/spark
+      creates: /opt/spark/spark-{{spark_version}}-bin-hadoop2.7/README.md
+
+  - name: configure alternatives
+    alternatives:
+      name: spark
+      link: /opt/spark/default
+      path: /opt/spark/spark-{{spark_version}}-bin-hadoop2.7
+
+  tags:
+    - spark

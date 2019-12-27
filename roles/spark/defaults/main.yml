@@ -1,0 +1,4 @@
+---
+# defaults file for roles/spark
+
+spark_version: 2.4.4

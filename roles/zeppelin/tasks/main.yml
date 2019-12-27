@@ -27,5 +27,11 @@
       link: /opt/zeppelin/default
       path: /opt/zeppelin/zeppelin-{{zeppelin_version}}-bin-netinst
 
+  - name: configure zeppelin-env.sh
+    template:
+      src: zeppelin-env.sh.j2
+      dest: /opt/zeppelin/default/conf/zeppelin-env.sh
+    when: zeppelin_spark
+
   tags:
     - zeppelin

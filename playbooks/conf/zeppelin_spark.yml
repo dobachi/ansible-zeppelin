@@ -1,0 +1,11 @@
+---
+- hosts: "{{ server | default('production') }}"
+  vars:
+    zeppelin_spark: True
+  roles:
+    - jdk
+    - spark
+    - zeppelin
+    
+
+# vim: et sw=2 ts=2:

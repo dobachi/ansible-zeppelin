@@ -1,0 +1,30 @@
+---
+# tasks file for roles/zeppelin
+
+- block:
+
+  - name: mkdir zeppelin
+    file:
+      path: /opt/zeppelin
+      state: directory
+
+
+  - name: downlaod zeppelin
+    get_url:
+      url: http://ftp.kddilabs.jp/infosystems/apache/zeppelin/zeppelin-0.8.2/zeppelin-0.8.2-bin-all.tgz
+      dest: /opt/zeppelin/
+      force: no
+
+  - name: unarchive zeppelin package
+    unarchive:
+      src: /opt/zeppelin/zeppelin-0.8.2-bin-all.tgz
+      dest: /opt/zeppelin
+
+  - name: configure alternatives
+    alternatives:
+      name: zeppelin
+      link: /opt/zeppelin/default
+      path: /opt/zeppelin/zeppelin-0.8.2-bin-all
+
+  tags:
+    - zeppelin

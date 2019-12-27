@@ -24,5 +24,10 @@
       link: /opt/spark/default
       path: /opt/spark/spark-{{spark_version}}-bin-hadoop2.7
 
+  - name: configure spark-defaults.conf
+    template:
+      src: spark-defaults.conf.j2
+      dest: /opt/spark/default/conf/spark-defaults.conf
+
   tags:
     - spark
